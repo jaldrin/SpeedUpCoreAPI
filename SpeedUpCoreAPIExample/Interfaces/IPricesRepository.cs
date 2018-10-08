@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace SpeedUpCoreAPIExample.Interfaces
 {
-    interface IPricesRepository
+    public interface IPricesRepository
     {
         Task<IEnumerable<Price>> GetPricesAsync(int productId);
     }

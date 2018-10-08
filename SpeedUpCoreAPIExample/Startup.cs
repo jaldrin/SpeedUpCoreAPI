@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SpeedUpCoreAPIExample.Contexts;
 using SpeedUpCoreAPIExample.Interfaces;
 using SpeedUpCoreAPIExample.Repositories;
+using SpeedUpCoreAPIExample.Services;
 
 namespace SpeedUpCoreAPIExample
 {
@@ -25,8 +26,12 @@ namespace SpeedUpCoreAPIExample
 
             services.AddDbContext<DefaultContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultDatabase")));
+
             services.AddScoped<IProductsRepository, ProductsRepository>();
             services.AddScoped<IPricesRepository, PricesRepository>();
+
+            services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IPricesService, PricesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
