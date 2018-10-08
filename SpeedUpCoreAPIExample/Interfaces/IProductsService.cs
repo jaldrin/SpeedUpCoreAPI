@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace SpeedUpCoreAPIExample.Interfaces
 {
-    interface IProductsService
+    public interface IProductsService
     {
         Task<IActionResult> GetAllProductsAsync();
         Task<IActionResult> GetProductAsync(int productId);
